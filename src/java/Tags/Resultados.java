@@ -41,13 +41,13 @@ public class Resultados extends TagSupport{
     }
     
     @Override
-    public int doStartTag() throws JspException {
+    public int doStartTag() throws JspTagException {
         jdbc = new AccesoJDBC();
         return SKIP_BODY;
     }
 
     @Override
-    public int doEndTag() throws JspException {
+    public int doEndTag() throws JspTagException {
         try {
             ResultSet rs = jdbc.getResultados(getCompeticion(),getLugar());
             ResultSetMetaData rsmd = rs.getMetaData();
